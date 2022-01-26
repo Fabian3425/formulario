@@ -1,0 +1,167 @@
+:root{
+    --var-FuentePrincipal:'Mulish', sans-serif;
+    --backgroundColor:#fff;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{ 
+    background: var(--backgroundColor);
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: var(--var-FuentePrincipal);
+    color: rgb(10, 10, 10);
+}
+
+main {
+    max-width: 800px;
+    width: 90%;
+    margin: auto;
+    padding: 40px;
+}
+
+.formulario{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px
+}
+
+.form__label{
+    display: block;
+    font-weight: 700;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.container__input-icon{
+    position: relative;
+} 
+.formulario__input{
+    width: 100%;
+    background: #fff;
+    border-radius:8px;
+    border: 3px solid transparent;
+    height: 45px;
+    line-height: 45px;
+    padding: 0 40px 0 10px;
+
+    transition: .3s ease all;
+}
+
+.formulario__input:focus{
+    border: 3px solid rgb(16, 155, 173);
+    outline: none;
+    box-shadow: 3px 0px 30px rgba(163, 163,163, .4);
+}
+
+.form-alert__error{
+    font-size: 12px ;
+    margin-bottom: 0;
+    display: none;
+}
+
+.form-alert__error-activo{
+    display: block;
+}
+
+.form__validation-status{
+    position: absolute;
+    right: 10px;
+    bottom: 15px;
+    z-index: 100;
+    font-size: 16px;
+    opacity: 0;
+}
+
+.form__terminos{
+    margin-right: 10px;
+}
+
+.form__group-terminos,
+.form__mensaje-error,
+.form__group-btn{
+    grid-column: span 2;
+}
+
+.form__mensaje-error{
+    height: 45px;
+    line-height: 45px;
+    background: #f66060;
+    padding: 0 15px;
+    border-radius: 3px;
+    display: none;
+}
+.form__mensaje-error-activo{
+    display: block;
+}
+
+.form__mensaje-error p {
+    margin: 0;
+}
+.form__group-btn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form-btn{
+    height: 45px;
+    line-height: 45px;
+    width: 30%;
+    background: #000;
+    color: #fff;
+    border:none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition:  .1s all ease;
+}
+
+.form-btn:hover{
+    background: rgb(57, 115, 182);
+}
+
+.form__mensaje-exito{
+    font-size: 14px;
+    color: #119200;
+    display: none;
+}
+.form__mensaje-exito-activo{
+    display: block;
+}
+
+/*Validacion*/
+.form__group-correcto .form__validation-status{
+    color: #1ed12d;
+    opacity: 1;
+}
+
+.form__group-incorrecto .form__label{
+    color:#bb2929;
+}
+
+.form__group-incorrecto .form__validation-status{
+    color:#bb2929;
+    opacity: 1;
+}
+
+.form__group-incorrecto .formulario__input{
+    border:3px solid #bb2929
+}
+
+/*Query*/
+@media screen and (max-width:800px){
+    .formulario{
+        grid-template-columns: 1fr;
+    }
+    .form__group-terminos,
+    .form__mensaje-error,
+    .form__group-btn{
+    grid-column: span 1;
+    }
+
+    .form-btn{
+        width: 100%;
+    }
+}
